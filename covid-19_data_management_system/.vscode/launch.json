@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Archivo actual",
+            "type": "python",
+            "request": "launch",
+            "program": "C:/Program Files (x86)/Odoo/Source/odoo13/odoo-bin",
+            "console": "integratedTerminal",
+            "args": [
+                "-c",
+                "C:/Users/Indatech/venv/odoo13-venv/Lib/site-packages/odoo/config_files/addons_covid-19.conf",
+                "-u",
+                "covid-19_data_management_system"
+            ]
+        }
+    ]
+}

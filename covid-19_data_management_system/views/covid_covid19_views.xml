@@ -1,0 +1,110 @@
+<odoo>
+	<data>
+	
+		<!-- explicit list view definition -->
+		<record id="covid_covid19_view_tree" model="ir.ui.view">
+			<field name="name">covid.covid19.view.tree</field>
+			<field name="model">covid.covid19</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="source"/>
+					<field name="datetime"/>
+					<field name="country_id"/>
+					<field name="infected"/>
+					<field name="recovered"/>
+					<field name="deceased"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- explicit form view definition -->
+		<record id="covid_covid19_view_form" model="ir.ui.view">
+			<field name="name">covid.covid19.view.form</field>
+			<field name="model">covid.covid19</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+						<group>
+							<field name="source"/>
+							<field name="datetime"/>
+							<field name="country_id"/>
+						</group>
+						<group>
+							<field name="infected"/>
+							<field name="recovered"/>
+							<field name="deceased"/>
+						</group>
+						<group>
+							<field name="total_infected"/>
+							<field name="total_recovered"/>
+							<field name="total_deceased"/>
+						</group>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<!-- explicit calendar view definition -->
+		<record id="covid_covid19_view_calendar" model="ir.ui.view">
+			<field name="name">covid.covid19.view.calendar</field>
+			<field name="model">covid.covid19</field>
+			<field name="arch" type="xml">
+				<calendar string="COVID-19" date_start="datetime">
+					<field name="country_id"/>
+					<field name="infected"/>
+				</calendar>
+			</field>
+		</record>
+
+		<!-- explicit graph view definition -->
+		<record id="covid_covid19_view_graph" model="ir.ui.view">
+			<field name="name">covid.covid19.view.graph</field>
+			<field name="model">covid.covid19</field>
+			<field name="arch" type="xml">
+				<graph string="COVID-19">
+					<field name="country_id"/>
+					<field name="infected" type="measure"/>
+				</graph>
+			</field>
+		</record>
+
+		<!-- explicit pivot view definition -->
+		<record id="covid_covid19_view_pivot" model="ir.ui.view">
+			<field name="name">covid.covid19.view.pivot</field>
+			<field name="model">covid.covid19</field>
+			<field name="arch" type="xml">
+				<pivot string="COVID-19">
+					<field name="datetime" type="row"/>
+					<field name="country_id" type="row"/>
+					<field name="infected" type="measure"/>
+					<field name="recovered" type="measure"/>
+					<field name="deceased" type="measure"/>
+				</pivot>
+			</field>
+		</record>
+
+		<!-- actions opening views on models -->
+		<record id="covid_covid19_action" model="ir.actions.act_window">
+			<field name="name">covid_covid19_action</field>
+			<field name="res_model">covid.covid19</field>
+			<field name="view_mode">tree,form,calendar,graph,pivot</field>
+		</record>
+
+		<!-- Top menu item -->
+		<menuitem 
+			id="covid_covid19_menu_root" 
+			name="COVID-19" 
+			sequence="5"
+		/>
+
+		<!-- menu categories -->
+		<menuitem 
+			id="covid_covid19_menu_open_view" 
+			name="Registro" 
+			parent="covid_covid19_menu_root" 
+			action="covid_covid19_action"
+			sequence="10"
+		/>
+    
+  	</data>
+</odoo>

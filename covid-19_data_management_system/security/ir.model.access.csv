@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_covid_covid19_public,covid.covid19,model_covid_covid19,,1,1,1,1
